@@ -93,10 +93,10 @@ class KMeansClustering(Scene):
             else:
                 new_centroids.append(centroid_dots[i].get_center())  # Same centroid if no points
 
-        # Affichage du calcul
+        # Formula display
         eq_text = MathTex(r"\text{New centroid} = \frac{1}{n}\sum_{i=1}^n x_i", color=WHITE).move_to([-1,3,0])
         
-        # Déplacement des deux groupes de centroïdes
+        # Move both centroid
         self.play(
             Write(eq_text),
 			centroid_group_1.animate.move_to(new_centroids[0]),
@@ -105,6 +105,5 @@ class KMeansClustering(Scene):
         )
         self.wait()
 	
-        # Fin
         self.play(FadeOut(eq_text))
         self.wait(2)
